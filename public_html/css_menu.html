@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Menu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="reset.css" />
+        <style>
+
+            .mainmenu {
+                display: inline-block;
+                padding:0;
+                margin: 0;
+            }
+
+            .mainmenu, .submenu {
+                -webkit-box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
+                -moz-box-shadow:    1px 1px 4px 0px rgba(50, 50, 50, 0.72);
+                box-shadow:         1px 1px 4px 0px rgba(50, 50, 50, 0.72);
+
+                background: rgb(59,103,158); /* Old browsers */
+                background: -moz-linear-gradient(top, rgba(59,103,158,1) 0%, rgba(43,136,217,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(59,103,158,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+                background: linear-gradient(to bottom, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+            }
+            .mainmenu span {
+                position: absolute;
+                left:80%;
+                font-size: small;
+            }
+            .mainmenu a {
+                text-decoration: none;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                display: block; 
+                color:white;
+                font-weight: bold;
+
+            }
+            .mainmenu li:hover {
+                background-color: lightskyblue;
+            }
+            .mainmenu li:hover > a{
+                color:lemonchiffon;
+            }
+            .mainmenu li{
+                list-style: none;
+                text-align: center;
+            }
+            .mainmenu > li{
+                display:inline-block;
+                width:150px;
+            }
+            .dropdown{
+                position: relative;
+            }
+            .dropdown:hover > .submenu{
+                visibility: visible;
+                opacity:1;
+            }
+            /*submenus*/
+            .submenu {
+                left: 0px;
+                padding: 0;
+                width:150px;
+                position: absolute;
+                opacity:0.0;
+                visibility: hidden;
+                -webkit-transition: opacity 1s ease; 
+                -moz-transition: opacity 1s ease; 
+                -ms-transition: opacity 1s ease; 
+                -o-transition: opacity 1s ease; 
+                transition: opacity 1s ease;
+                left: 0px;
+            }
+            .submenu_right{
+                top: 0px;
+                left: 150px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul class="mainmenu">
+                <li><a href="#">Item 1</a></li><li><a href="#">Item 2</a></li><li class="dropdown"><a href="#">Item 3 <span>&#9660;</span></a>
+                    <ul class="submenu">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </li><li class="dropdown"><a href="#">Item 4 <span>&#9660;</span></a>
+                    <ul class="submenu">
+                        <li class="dropdown"><a href="#">Item 1 <span>&#9654;</span></a>
+                            <ul class="submenu submenu_right">
+                                <li><a href="#">Item 1</a></li>
+                                <li><a href="#">Item 2</a></li>
+                                <li><a href="#">Item 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="#">Item 2 <span>&#9654;</span></a>
+                            <ul class="submenu submenu_right">
+                                <li><a href="#">Item 1</a></li>
+                                <li><a href="#">Item 2</a></li>
+                                <li><a href="#">Item 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="#">Item 3 <span>&#9654;</span></a>
+                            <ul class="submenu submenu_right">
+                                <li><a href="#">Item 1</a></li>
+                                <li><a href="#">Item 2</a></li>
+                                <li><a href="#">Item 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
