@@ -1,0 +1,74 @@
+@mixin transition($t){
+    -webkit-transition: $t; 
+    -moz-transition: $t; 
+    -ms-transition: $t; 
+    -o-transition: $t; 
+    transition: $t;
+}
+$subMenuWidth : 160px;
+$s : 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
+
+.mainmenu, .submenu {
+    -webkit-box-shadow: $s;
+    -moz-box-shadow:    $s;
+    box-shadow:         $s;
+    background:cornflowerblue;
+}
+
+.mainmenu {
+    display: inline-block;
+    padding:0;
+    margin: 0;
+    span{
+        position: absolute;
+        left:80%;
+        font-size: small; 
+    }
+    a {
+        text-decoration: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: block; 
+        color:white;
+        font-weight: bold;
+    }
+    li{
+        list-style: none;
+        text-align: center;
+        @include transition(background-color 0.2s ease);
+        &:hover {
+            background-color: lightskyblue;
+            > a{
+                color:lemonchiffon;
+            }
+        }
+    }
+    > li{
+        display:inline-block;
+        width:$subMenuWidth;
+    }
+}
+
+.dropdown{
+    position: relative;
+    &:hover{
+        > .submenu {
+            visibility: visible;
+            opacity:1;
+        } 
+    }
+} 
+
+.submenu {
+    left: 0;
+    padding: 0;
+    opacity:0.0;
+    width:$subMenuWidth;
+    position: absolute;
+    visibility: hidden;
+    @include transition(opacity 2s ease);
+}
+.submenu_right{
+    top: 0;
+    left: $subMenuWidth;
+}
