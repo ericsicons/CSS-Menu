@@ -1,11 +1,10 @@
 .mainmenu, .submenu {
     -webkit-box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
     -moz-box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
-    box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
-    background: cornflowerblue; }
+    box-shadow: 1px 1px 4px 0px rgba(50, 50, 50, 0.72); }
 
 .mainmenu {
-    display: inline-block;
+    background: cornflowerblue;
     padding: 0;
     margin: 0; }
 .mainmenu span {
@@ -34,12 +33,24 @@
 .mainmenu > li {
     display: inline-block;
     width: 160px; }
+@media screen and (max-width: 650px) {
+    .mainmenu {
+        width: 100%; }
+    .mainmenu > li {
+        display: block;
+        width: 100%;
+        min-width: 80px; } }
 
 .dropdown {
     position: relative; }
 .dropdown:hover > .submenu {
     visibility: visible;
     opacity: 1; }
+@media screen and (max-width: 650px) {
+    .dropdown:hover > .submenu {
+        visibility: visible;
+        position: relative;
+        opacity: 1; } }
 
 .submenu {
     left: 0;
@@ -48,14 +59,21 @@
     width: 160px;
     position: absolute;
     visibility: hidden;
+    background: red;
     -webkit-transition: opacity 2s ease;
     -moz-transition: opacity 2s ease;
     -ms-transition: opacity 2s ease;
     -o-transition: opacity 2s ease;
     transition: opacity 2s ease; }
+@media screen and (max-width: 650px) {
+    .submenu {
+        width: 100%; } }
 
 .submenu_right {
     top: 0;
     left: 160px; }
+@media screen and (max-width: 650px) {
+    .submenu_right {
+        left: 0; } }
 
 /*# sourceMappingURL=style.css.map */
