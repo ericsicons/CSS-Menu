@@ -6,24 +6,25 @@
     transition: $t;
 }
 $subMenuWidth : 160px;
+$screenWidth: 650px;
 $s : 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
 
 .mainmenu, .submenu {
     -webkit-box-shadow: $s;
     -moz-box-shadow:    $s;
     box-shadow:         $s;
-    background:cornflowerblue;
+  
 }
 
 .mainmenu {
-    display: inline-block;
+    background:cornflowerblue;
     padding:0;
     margin: 0;
     span{
         position: absolute;
         left:80%;
         font-size: small; 
-    }
+    } 
     a {
         text-decoration: none;
         padding-top: 10px;
@@ -45,9 +46,18 @@ $s : 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
     }
     > li{
         display:inline-block;
-        width:$subMenuWidth;
+        width: $subMenuWidth;
+       
     }
-}
+    @media screen and (max-width: $screenWidth) {
+        width:100%;
+        > li{
+            display:block;
+            width:100%;
+             min-width:$subMenuWidth /2;
+        }
+    }
+} 
 
 .dropdown{
     position: relative;
@@ -56,6 +66,15 @@ $s : 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
             visibility: visible;
             opacity:1;
         } 
+    }
+    @media screen and (max-width: $screenWidth) {
+        &:hover{
+            > .submenu {
+                visibility: visible;
+                position: relative;
+                opacity:1;
+            } 
+        }
     }
 } 
 
@@ -66,9 +85,19 @@ $s : 1px 1px 4px 0px rgba(50, 50, 50, 0.72);
     width:$subMenuWidth;
     position: absolute;
     visibility: hidden;
+     background:red;
     @include transition(opacity 2s ease);
+    @media screen and (max-width: $screenWidth) {
+        width:100%;
+  
+    
+
+    }
 }
 .submenu_right{
     top: 0;
-    left: $subMenuWidth;
+    left: $subMenuWidth; 
+    @media screen and (max-width: $screenWidth) {
+        left: 0;
+    }
 }
